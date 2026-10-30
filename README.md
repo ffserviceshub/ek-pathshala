@@ -1,4 +1,4 @@
-# Ek Pathshala — GitHub Pages starter
+# Ek Course — GitHub Pages starter
 
 This is an original starter website inspired by the general folder organization of a course website. It does not copy the source code or assets of PremiumSubscriptions/ps.
 
