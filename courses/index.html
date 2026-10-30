@@ -26,10 +26,10 @@
 <div class="course-tools">
 <input id="courseSearch" type="search" placeholder="কোর্সের নাম দিয়ে খুঁজুন..." aria-label="কোর্স খুঁজুন">
 <select id="gradeFilter" aria-label="ক্যাটাগরি"><option value="">সকল ক্যাটাগরি</option><option>HSC-28 Academic</option><option>HSC-27 Academic</option><option>HSC-26 Admission</option><option>HSC-26 Academic</option><option>HSC-25 Admission</option></select>
-<select id="typeFilter" aria-label="প্রতিষ্ঠান"><option value="">সকল প্রতিষ্ঠান</option><option>ACS</option><option>Udvash</option><option>UDVASH</option><option>Bondi Pathshala</option><option>Physics Hunters</option><option>RTDS</option><option>CPS</option><option>Battle of Biology</option><option>Alchemy</option></select>
+<select id="typeFilter" aria-label="প্রতিষ্ঠান"><option value="">সকল প্রতিষ্ঠান</option><option>ACS</option><option>Udvash</option><option>Bondi Pathshala</option><option>Physics Hunters</option><option>RTDS</option><option>CPS</option><option>Battle of Biology</option><option>Alchemy</option></select>
 </div>
 <div class="course-grid" id="courseGrid">
-<article class="course-card featured-course" data-course-id="hsc-science-1st-paper" data-grade="HSC-28 Academic" data-type="Udvash" data-title="hsc science 1st paper full syllabus pcmb physics chemistry higher math biology">
+<article class="course-card featured-course" data-course-id="hsc-science-1st-paper" data-grade="HSC-28 Academic" data-type="Udvash" data-duration="Full Syllabus" data-title="hsc science 1st paper full syllabus pcmb physics chemistry higher math biology">
  <img src="../pcmbhsc550tk.jpg" alt="HSC Science 1st Paper Full Syllabus — Udvash PCMB" loading="eager">
  <div class="course-info">
   <div class="course-meta"><span>🔥 ১০,০০০+ বিক্রি</span><span>HSC-28 Academic</span><span>Udvash</span></div>
@@ -687,14 +687,13 @@
 <a class="enroll order-whatsapp" href="#" aria-label="ACS Physics HSC 27 By Apurbo Mashrur Apar (Cycle-1) WhatsApp-এ অর্ডার করুন">WhatsApp-এ অর্ডার করুন</a></div></article>
 </div></main>
 <footer>© Ek Pathshala</footer>
-<a class="whatsapp-float" href="https://wa.me/8801835542454" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-এ যোগাযোগ করুন">WhatsApp</a>
 <script>
 const whatsappNumber='8801835542454';
 document.querySelectorAll('.course-card').forEach(card=>{
  const name=card.querySelector('h3').textContent.trim();
  const price=card.querySelector('.course-price strong').textContent.trim();
  const grade=card.dataset.grade, provider=card.dataset.type;
- const duration=card.querySelector('.course-meta span:nth-child(3)').textContent.trim();
+ const duration=card.dataset.duration || card.querySelector('.course-meta span:nth-child(3)').textContent.trim();
  const message=['আসসালামু আলাইকুম, আমি এই কোর্সটি অর্ডার করতে চাই।','', 'কোর্স: '+name,'ক্যাটাগরি: '+grade,'প্রতিষ্ঠান: '+provider,'মেয়াদ: '+duration,'মূল্য: '+price,'','আমার নাম: ','মোবাইল নম্বর: ','','অর্ডারটি কনফার্ম করার নিয়ম জানাবেন।'].join('\n');
  const link=card.querySelector('.order-whatsapp');
  link.href='https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(message);
@@ -704,7 +703,7 @@ const search=document.getElementById('courseSearch'),gradeFilter=document.getEle
 function filterCourses(){
  const q=search.value.trim().toLocaleLowerCase();let visible=0;
  document.querySelectorAll('.course-card').forEach(card=>{
-  const show=card.dataset.title.includes(q)&&(!gradeFilter.value||card.dataset.grade===gradeFilter.value)&&(!typeFilter.value||card.dataset.type===typeFilter.value);
+  const show=card.dataset.title.includes(q)&&(!gradeFilter.value||card.dataset.grade===gradeFilter.value)&&(!typeFilter.value||card.dataset.type.toLowerCase()===typeFilter.value.toLowerCase());
   card.hidden=!show;if(show)visible++;
  });
  let empty=document.getElementById('emptyCourses');
