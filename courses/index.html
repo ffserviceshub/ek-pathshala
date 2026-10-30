@@ -1,1 +1,129 @@
-<!doctype html><html lang="bn"><head><meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1"><title>কোর্সসমূহ | Ek Pathshala</title><meta name="description" content="Ek Pathshala-এর একাডেমিক ও স্কিলভিত্তিক কোর্স।"><link rel="stylesheet" href="../assets/style.css"></head><body><header class="site-header"><a class="brand" href="../"><img src="../logo.webp" width="40" height="40" alt=""> Ek Pathshala</a><nav><a href="../">হোম</a><a href="./">কোর্স</a><a href="../contact/">যোগাযোগ</a></nav></header><main class="section"><h2>আমাদের কোর্সসমূহ</h2><p>এখানে নিজের কোর্সের নাম, বিবরণ, মূল্য এবং ছবি যোগ করুন।</p><div class="cards"><article><h3>একাডেমিক প্রস্তুতি</h3><p>বিষয়ভিত্তিক পড়াশোনা ও পরীক্ষার প্রস্তুতি।</p></article><article><h3>ডিজিটাল স্কিল</h3><p>ক্যারিয়ার গড়ার জন্য প্রয়োজনীয় দক্ষতা।</p></article><article><h3>ইংরেজি ও যোগাযোগ</h3><p>যোগাযোগ দক্ষতা বাড়ানোর অনুশীলন।</p></article></div></main><footer>© Ek Pathshala</footer><a class="whatsapp-float" href="https://wa.me/8801835542454" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-এ যোগাযোগ করুন">WhatsApp: 01835542454</a></body></html>
+<!doctype html>
+<html lang="bn">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<title>সকল কোর্স | Ek Pathshala</title>
+<meta name="description" content="HSC Academic ও Admission প্রস্তুতির অনলাইন কোর্সসমূহ দেখুন এবং আপনার পছন্দের কোর্স বেছে নিন।">
+<link rel="stylesheet" href="../assets/style.css">
+<style>
+.course-tools{display:flex;justify-content:center;gap:10px;flex-wrap:wrap;margin:22px 0 30px}
+.course-tools input,.course-tools select{padding:11px 14px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit;min-width:190px}
+.course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.course-card{padding:0;overflow:hidden;display:flex;flex-direction:column}
+.course-card img{display:block;width:100%;aspect-ratio:16/10;object-fit:cover;background:#eee}
+.course-info{padding:17px;display:flex;flex-direction:column;flex:1}
+.course-info h3{font-size:1.05rem;line-height:1.5;margin:0 0 9px}
+.course-meta{display:flex;flex-wrap:wrap;gap:7px;margin:5px 0 12px}
+.course-meta span{font-size:.78rem;background:#f1efff;color:#5140b8;padding:3px 9px;border-radius:20px}
+.course-price{display:flex;align-items:baseline;gap:9px;margin-top:auto;padding-top:12px}
+.course-price strong{font-size:1.35rem;color:var(--brand)}
+.course-price del{color:var(--muted);font-size:.9rem}
+.course-bottom{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:12px;color:var(--muted);font-size:.82rem}
+.enroll{display:inline-block;background:var(--brand);color:#fff!important;padding:8px 13px;border-radius:9px;text-decoration:none;font-weight:700}
+.empty-state{text-align:center;color:var(--muted);padding:35px;grid-column:1/-1}
+@media(max-width:850px){.course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
+@media(max-width:560px){.course-grid{grid-template-columns:1fr}.course-tools input,.course-tools select{width:100%}}
+</style>
+</head>
+<body>
+<header class="site-header">
+<a class="brand" href="../"><img src="../logo.webp" width="40" height="40" alt=""> Ek Pathshala</a>
+<nav><a href="../">হোম</a><a href="./">কোর্স</a><a href="../class/">ক্লাস</a><a href="../exam/">পরীক্ষা</a><a href="../contact/">যোগাযোগ</a></nav>
+</header>
+<main class="section">
+<h2>আমাদের সকল কোর্স</h2>
+<p style="text-align:center;color:var(--muted)">আপনার লক্ষ্য অনুযায়ী কোর্স বেছে নিয়ে প্রস্তুতি শুরু করুন।</p>
+<div class="course-tools">
+<input id="courseSearch" type="search" placeholder="কোর্সের নাম লিখে খুঁজুন..." aria-label="কোর্স খুঁজুন">
+<select id="gradeFilter" aria-label="শ্রেণি নির্বাচন"><option value="">সকল ক্যাটাগরি</option><option>HSC-27 Academic</option><option>HSC-26 Admission</option></select>
+<select id="typeFilter" aria-label="কোর্স প্রদানকারী নির্বাচন"><option value="">সকল প্রতিষ্ঠান</option><option>Udvash</option><option>UDVASH</option><option>Bondi Pathshala</option><option>ACS</option><option>Physics Hunters</option></select>
+</div>
+<div class="course-grid" id="courseGrid">
+<article class="course-card" data-grade="HSC-27 Academic" data-type="Udvash" data-title="finial revision batch 2027🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20261009_122631_150.jpg" alt="FINIAL REVISION BATCH 2027🔥" loading="lazy">
+<div class="course-info">
+<h3>FINIAL REVISION BATCH 2027🔥</h3>
+<div class="course-meta"><span>HSC-27 Academic</span><span>Udvash</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,000 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-27 Academic" data-type="Bondi Pathshala" data-title="bp powerplay 27 🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20261009_122626_677.jpg" alt="BP POWERPLAY 27 🔥" loading="lazy">
+<div class="course-info">
+<h3>BP POWERPLAY 27 🔥</h3>
+<div class="course-meta"><span>HSC-27 Academic</span><span>Bondi Pathshala</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,000 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-27 Academic" data-type="ACS" data-title="acs frb 2027 🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20261009_122621_652.jpg" alt="ACS FRB 2027 🔥" loading="lazy">
+<div class="course-info">
+<h3>ACS FRB 2027 🔥</h3>
+<div class="course-meta"><span>HSC-27 Academic</span><span>ACS</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳450</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,000 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="ACS" data-title="🔥acs iba admission  2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260908_230207_879.jpg" alt="🔥ACS IBA ADMISSION  2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥ACS IBA ADMISSION  2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>ACS</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳450</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,000 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="Bondi Pathshala" data-title="✅ঢাবি খ + বিভাগ পরিবর্তন ৫.০✅">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260828_150154_978.jpg" alt="✅ঢাবি খ + বিভাগ পরিবর্তন ৫.০✅" loading="lazy">
+<div class="course-info">
+<h3>✅ঢাবি খ + বিভাগ পরিবর্তন ৫.০✅</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>Bondi Pathshala</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 700 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="UDVASH" data-title="🔥udvash ভর্সিটি ক 2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260828_150152_946.jpg" alt="🔥UDVASH ভর্সিটি ক 2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥UDVASH ভর্সিটি ক 2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>UDVASH</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 700 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="UDVASH" data-title="🔥udvash ইন্জিনিয়ারিং 2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260828_150151_622.jpg" alt="🔥UDVASH ইন্জিনিয়ারিং 2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥UDVASH ইন্জিনিয়ারিং 2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>UDVASH</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳450</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 700 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="UDVASH" data-title="🔥udvash ভর্সিটি খ 2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260816_213142_780.jpg" alt="🔥UDVASH ভর্সিটি খ 2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥UDVASH ভর্সিটি খ 2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>UDVASH</span><span>3.0 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 800 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="UDVASH" data-title="🔥udvash medical 2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260816_213140_977.jpg" alt="🔥UDVASH MEDICAL 2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥UDVASH MEDICAL 2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>UDVASH</span><span>3.0 months</span></div>
+<div class="course-price"><strong>৳300</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 800 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="ACS" data-title="🔥acs medical 2026🔥">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260806_122117_693.jpg" alt="🔥ACS MEDICAL 2026🔥" loading="lazy">
+<div class="course-info">
+<h3>🔥ACS MEDICAL 2026🔥</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>ACS</span><span>2.5 months</span></div>
+<div class="course-price"><strong>৳450</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,000 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article><article class="course-card" data-grade="HSC-26 Admission" data-type="Physics Hunters" data-title="🏥campus 6.0- hsc 2025/26">
+<img src="https://cdn.jsdelivr.net/gh/PremiumSubscriptions/premium-subscriptions-bot@main/IMG_20260805_232936_422.jpg" alt="🏥Campus 6.0- HSC 2025/26" loading="lazy">
+<div class="course-info">
+<h3>🏥Campus 6.0- HSC 2025/26</h3>
+<div class="course-meta"><span>HSC-26 Admission</span><span>Physics Hunters</span><span>3.0 months</span></div>
+<div class="course-price"><strong>৳450</strong><del>৳5000</del></div>
+<div class="course-bottom"><span>👨‍🎓 1,100 শিক্ষার্থী · ⭐ 5.0</span><a class="enroll" href="../contact/">ভর্তি হন</a></div>
+</div></article>
+</div>
+</main>
+<footer>© Ek Pathshala</footer>
+<a class="whatsapp-float" href="https://wa.me/8801835542454" target="_blank" rel="noopener noreferrer" aria-label="WhatsApp-এ যোগাযোগ করুন">WhatsApp: 01835542454</a>
+<script>
+const search=document.getElementById('courseSearch'),grade=document.getElementById('gradeFilter'),type=document.getElementById('typeFilter');
+function filterCourses(){const q=search.value.trim().toLowerCase();let count=0;document.querySelectorAll('.course-card').forEach(card=>{const ok=card.dataset.title.includes(q)&&(!grade.value||card.dataset.grade===grade.value)&&(!type.value||card.dataset.type===type.value);card.hidden=!ok;if(ok)count++;});let empty=document.getElementById('emptyCourses');if(!count&&!empty){empty=document.createElement('p');empty.id='emptyCourses';empty.className='empty-state';empty.textContent='কোনো কোর্স পাওয়া যায়নি।';document.getElementById('courseGrid').appendChild(empty);}else if(count&&empty)empty.remove();}
+[search,grade,type].forEach(el=>el.addEventListener('input',filterCourses));
+</script>
+</body></html>
