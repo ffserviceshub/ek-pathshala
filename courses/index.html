@@ -5,24 +5,28 @@
 <meta name="description" content="Ek Course-এর HSC Academic ও Admission কোর্সসমূহ। পছন্দের কোর্স WhatsApp-এ অর্ডার করুন।">
 <link rel="stylesheet" href="../assets/style.css">
 <style>
-.section{max-width:1180px}.course-intro{text-align:center;color:var(--muted);margin:-5px auto 24px}
-.course-tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:10px;margin:24px 0}
-.course-tools input,.course-tools select{width:100%;min-width:0;padding:11px 13px;border:1px solid var(--line);border-radius:10px;background:#fff;color:var(--ink);font:inherit}
-.course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:18px}
-.course-card{padding:0;overflow:hidden;display:flex;flex-direction:column;border:1px solid var(--line);border-radius:15px;background:#fff}
-.featured-course{border:2px solid #f59e0b;box-shadow:0 10px 28px rgba(245,158,11,.14)}.featured-course .course-meta:first-child span:first-child{background:#fff0c2;color:#8a5200;font-weight:800}.course-description{font-size:.9rem;line-height:1.7;color:var(--muted);margin:8px 0 2px}.course-card[hidden]{display:none}.course-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#eee}
-.course-info{padding:15px;display:flex;flex:1;flex-direction:column}.course-info h3{font-size:1rem;line-height:1.5;min-height:3em;margin:0 0 10px}
-.course-meta{display:flex;flex-wrap:wrap;gap:6px}.course-meta span{font-size:.75rem;background:#f1efff;color:#5140b8;padding:3px 8px;border-radius:20px}
-.course-price{display:flex;align-items:baseline;gap:9px;margin:14px 0}.course-price strong{font-size:1.35rem;color:var(--brand)}.course-price del{font-size:.85rem;color:var(--muted)}
-.order-whatsapp{margin-top:auto;text-align:center;background:#168b4a;color:#fff!important;padding:10px 12px;border-radius:9px;text-decoration:none;font-weight:750}
-.order-whatsapp:hover{filter:brightness(.93)}.empty-state{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}
-@media(max-width:850px){.course-grid{grid-template-columns:repeat(2,minmax(0,1fr))}}
-@media(max-width:580px){.course-tools{grid-template-columns:1fr}.course-grid{grid-template-columns:1fr}.course-info h3{min-height:0}}
+.section{max-width:1240px}.section>h2{font-size:clamp(1.8rem,4vw,2.65rem);letter-spacing:-.03em;background:linear-gradient(100deg,#31218f,#7558ec 55%,#16a078);-webkit-background-clip:text;background-clip:text;color:transparent;animation:courseRise .65s both}.course-intro{text-align:center;color:var(--muted);margin:-5px auto 24px;font-size:1rem}
+.course-tools{display:grid;grid-template-columns:2fr 1fr 1fr;gap:12px;margin:28px 0;padding:14px;border:1px solid #e6e3f8;border-radius:18px;background:rgba(255,255,255,.78);box-shadow:0 12px 34px rgba(43,35,100,.06)}
+.course-tools input,.course-tools select{width:100%;min-width:0;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:#fff;color:var(--ink);font:inherit;outline:none;transition:border-color .2s,box-shadow .2s}.course-tools input:focus,.course-tools select:focus{border-color:#7965e9;box-shadow:0 0 0 4px #7965e91c}
+.course-grid{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:22px}
+.course-card{padding:0;min-width:0;overflow:hidden;display:flex;flex-direction:column;border:1px solid #e8e7f1;border-radius:20px;background:#fff;box-shadow:0 8px 25px rgba(31,35,80,.055);transition:transform .28s ease,box-shadow .28s ease,border-color .28s ease;animation:courseRise .55s both}
+.course-card:hover{transform:translateY(-7px);box-shadow:0 20px 44px rgba(45,38,110,.14);border-color:#c9c1ff}
+.featured-course{border:2px solid #f4b63d;box-shadow:0 12px 32px rgba(245,158,11,.14)}.featured-course:hover{box-shadow:0 22px 48px rgba(245,158,11,.2)}.featured-course .course-meta:first-child span:first-child{background:#fff0c2;color:#8a5200;font-weight:800}.course-description{font-size:.9rem;line-height:1.75;color:var(--muted);margin:8px 0 2px}.course-card[hidden]{display:none}.course-card img{width:100%;aspect-ratio:16/10;object-fit:cover;background:#eee;transition:transform .55s cubic-bezier(.2,.7,.2,1);transform:scale(1.001)}.course-card:hover img{transform:scale(1.045)}
+.course-info{padding:18px;display:flex;flex:1;flex-direction:column}.course-info h3{font-size:1.02rem;line-height:1.55;min-height:3em;margin:0 0 11px}
+.course-meta{display:flex;flex-wrap:wrap;gap:7px}.course-meta span{font-size:.75rem;background:#f1efff;color:#5140b8;padding:4px 9px;border-radius:20px}
+.course-price{display:flex;align-items:baseline;gap:9px;margin:16px 0}.course-price strong{font-size:1.5rem;color:var(--brand);font-weight:850}.course-price del{font-size:.85rem;color:var(--muted)}
+.order-whatsapp{margin-top:auto;text-align:center;background:linear-gradient(110deg,#128c51,#19aa68);color:#fff!important;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 7px 16px #168b4a26;transition:transform .2s,filter .2s,box-shadow .2s}.order-whatsapp:hover{filter:brightness(1.05);transform:translateY(-2px);box-shadow:0 11px 22px #168b4a38}.order-whatsapp:active{transform:scale(.98)}
+.empty-state{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}
+@keyframes courseRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
+@media(min-width:1200px){.course-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.course-info{padding:20px}}
+@media(max-width:850px){.course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
+@media(max-width:580px){.course-tools{grid-template-columns:1fr;padding:11px;gap:9px}.course-grid{grid-template-columns:1fr;gap:17px}.course-info{padding:16px}.course-info h3{min-height:0}.course-card{border-radius:17px}.course-card img{aspect-ratio:16/9}}
+@media(prefers-reduced-motion:reduce){.course-card,.course-card img,.order-whatsapp,.section>h2{animation:none!important;transition:none!important}}
 </style></head><body>
 <header class="site-header"><a class="brand" href="../"><img src="../logo.webp" width="40" height="40" alt=""> Ek Course</a>
 <nav><a href="../">হোম</a><a href="./">কোর্স</a><a href="../contact/">যোগাযোগ</a></nav></header>
 <main class="section"><h2>আমাদের কোর্সসমূহ</h2>
-<p class="course-intro">কোর্স খুঁজুন, মূল্য দেখুন এবং WhatsApp-এ অর্ডার করুন।</p>
+<p class="course-intro">কোর্স খুঁজুন, মূল্য দেখুন এবং পছন্দের কোর্স সম্পর্কে WhatsApp-এ জানতে চান।</p>
 <div class="course-tools">
 <input id="courseSearch" type="search" placeholder="কোর্সের নাম দিয়ে খুঁজুন..." aria-label="কোর্স খুঁজুন">
 <select id="gradeFilter" aria-label="ক্যাটাগরি"><option value="">সকল ক্যাটাগরি</option><option>HSC-28 Academic</option><option>HSC-27 Academic</option><option>HSC-26 Admission</option><option>HSC-26 Academic</option><option>HSC-25 Admission</option></select>
@@ -689,13 +693,17 @@
 <footer>© Ek Course</footer>
 <script>
 const whatsappNumber='8801835542454';
+// WhatsApp only opens with a draft. Nothing is sent until the visitor presses Send.
 document.querySelectorAll('.course-card').forEach(card=>{
  const name=card.querySelector('h3').textContent.trim();
  const price=card.querySelector('.course-price strong').textContent.trim();
- const grade=card.dataset.grade, provider=card.dataset.type;
- const duration=card.dataset.duration || card.querySelector('.course-meta span:nth-child(3)').textContent.trim();
- const message=['আসসালামু আলাইকুম, আমি এই কোর্সটি অর্ডার করতে চাই।','', 'কোর্স: '+name,'ক্যাটাগরি: '+grade,'প্রতিষ্ঠান: '+provider,'মেয়াদ: '+duration,'মূল্য: '+price,'','আমার নাম: ','মোবাইল নম্বর: ','','অর্ডারটি কনফার্ম করার নিয়ম জানাবেন।'].join('\n');
+ const grade=card.dataset.grade || '';
+ const provider=card.dataset.type || '';
+ const duration=card.dataset.duration || card.querySelector('.course-meta span:nth-child(3)')?.textContent.trim() || '';
+ const message=['আসসালামু আলাইকুম, আমি Ek Course থেকে একটি কোর্স নিতে আগ্রহী।','', 'কোর্সের নাম: '+name,'ক্যাটাগরি: '+grade,'প্রতিষ্ঠান: '+provider,'মেয়াদ: '+duration,'মূল্য: '+price,'','এই কোর্সটি কীভাবে নিতে পারব এবং পেমেন্টের বিস্তারিত জানাবেন?'].join('\n');
  const link=card.querySelector('.order-whatsapp');
+ link.textContent='WhatsApp-এ আগ্রহ জানান';
+ link.setAttribute('aria-label',name+' কোর্সটি সম্পর্কে WhatsApp-এ জানতে চান');
  link.href='https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(message);
  link.target='_blank';link.rel='noopener noreferrer';
 });
