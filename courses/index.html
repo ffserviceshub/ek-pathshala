@@ -17,6 +17,11 @@
 .course-price{display:flex;align-items:baseline;gap:9px;margin:16px 0}.course-price strong{font-size:1.5rem;color:var(--brand);font-weight:850}.course-price del{font-size:.85rem;color:var(--muted)}
 .order-whatsapp{margin-top:auto;text-align:center;background:linear-gradient(110deg,#128c51,#19aa68);color:#fff!important;padding:12px 14px;border-radius:12px;text-decoration:none;font-weight:800;box-shadow:0 7px 16px #168b4a26;transition:transform .2s,filter .2s,box-shadow .2s}.order-whatsapp:hover{filter:brightness(1.05);transform:translateY(-2px);box-shadow:0 11px 22px #168b4a38}.order-whatsapp:active{transform:scale(.98)}
 .empty-state{text-align:center;color:var(--muted);padding:30px;grid-column:1/-1}
+.course-pagination{display:flex;justify-content:center;align-items:center;flex-wrap:wrap;gap:8px;margin:28px 0 8px}
+.course-pagination button{min-width:42px;padding:10px 13px;border:1px solid #dedaf4;border-radius:11px;background:#fff;color:#5140b8;font:inherit;font-weight:750;cursor:pointer}
+.course-pagination button[aria-current="page"]{background:#5140b8;color:#fff;border-color:#5140b8}
+.course-pagination button:disabled{opacity:.4;cursor:not-allowed}
+.page-note{text-align:center;color:var(--muted);font-size:.88rem;margin:8px 0 24px}
 @keyframes courseRise{from{opacity:0;transform:translateY(16px)}to{opacity:1;transform:translateY(0)}}
 @media(min-width:1200px){.course-grid{grid-template-columns:repeat(3,minmax(0,1fr));gap:24px}.course-info{padding:20px}}
 @media(max-width:850px){.course-grid{grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}}
@@ -689,7 +694,10 @@
 <div class="course-info"><h3>ACS Physics HSC 27 By Apurbo Mashrur Apar (Cycle-1)</h3><div class="course-meta"><span>HSC-27 Academic</span><span>ACS</span><span>2.5 months</span></div>
 <div class="course-price"><strong>৳300</strong><del>৳1500</del></div>
 <a class="enroll order-whatsapp" href="#" aria-label="ACS Physics HSC 27 By Apurbo Mashrur Apar (Cycle-1) WhatsApp-এ অর্ডার করুন">WhatsApp-এ অর্ডার করুন</a></div></article>
-</div></main>
+</div>
+<nav class="course-pagination" id="coursePagination" aria-label="কোর্স পৃষ্ঠা"></nav>
+<p class="page-note" id="pageNote" aria-live="polite"></p>
+</main>
 <footer>© Ek Course</footer>
 <script>
 const whatsappNumber='8801835542454';
@@ -708,15 +716,37 @@ document.querySelectorAll('.course-card').forEach(card=>{
  link.target='_blank';link.rel='noopener noreferrer';
 });
 const search=document.getElementById('courseSearch'),gradeFilter=document.getElementById('gradeFilter'),typeFilter=document.getElementById('typeFilter');
-function filterCourses(){
- const q=search.value.trim().toLocaleLowerCase();let visible=0;
- document.querySelectorAll('.course-card').forEach(card=>{
-  const show=card.dataset.title.includes(q)&&(!gradeFilter.value||card.dataset.grade===gradeFilter.value)&&(!typeFilter.value||card.dataset.type.toLowerCase()===typeFilter.value.toLowerCase());
-  card.hidden=!show;if(show)visible++;
- });
- let empty=document.getElementById('emptyCourses');
- if(!visible&&!empty){empty=document.createElement('p');empty.id='emptyCourses';empty.className='empty-state';empty.textContent='কোনো কোর্স পাওয়া যায়নি।';document.getElementById('courseGrid').appendChild(empty);}
- if(visible&&empty)empty.remove();
+const allCards=Array.from(document.querySelectorAll('.course-card'));
+const pageSize=10;let currentPage=1;
+const pagination=document.getElementById('coursePagination');
+const pageNote=document.getElementById('pageNote');
+function filteredCards(){
+ const q=search.value.trim().toLocaleLowerCase();
+ return allCards.filter(card=>card.dataset.title.includes(q)&&(!gradeFilter.value||card.dataset.grade===gradeFilter.value)&&(!typeFilter.value||card.dataset.type.toLowerCase()===typeFilter.value.toLowerCase()));
 }
-[search,gradeFilter,typeFilter].forEach(el=>el.addEventListener('input',filterCourses));
+function renderCourses(){
+ const matches=filteredCards(),pages=Math.max(1,Math.ceil(matches.length/pageSize));
+ currentPage=Math.min(currentPage,pages);
+ const first=(currentPage-1)*pageSize;
+ const visibleSet=new Set(matches.slice(first,first+pageSize));
+ allCards.forEach(card=>{card.hidden=!visibleSet.has(card);});
+ let empty=document.getElementById('emptyCourses');
+ if(!matches.length){
+  if(!empty){empty=document.createElement('p');empty.id='emptyCourses';empty.className='empty-state';empty.textContent='কোনো কোর্স পাওয়া যায়নি।';document.getElementById('courseGrid').appendChild(empty);}
+ }else if(empty)empty.remove();
+ pageNote.textContent=matches.length?('মোট '+matches.length+'টি কোর্স • '+(first+1)+'–'+Math.min(first+pageSize,matches.length)+' দেখানো হচ্ছে'):'';
+ pagination.replaceChildren();
+ if(pages<=1)return;
+ const addButton=(label,page,disabled=false,current=false)=>{
+  const b=document.createElement('button');b.type='button';b.textContent=label;b.disabled=disabled;
+  if(current)b.setAttribute('aria-current','page');
+  b.addEventListener('click',()=>{currentPage=page;renderCourses();document.querySelector('.course-tools').scrollIntoView({behavior:'smooth',block:'start'});});
+  pagination.appendChild(b);
+ };
+ addButton('← আগের',currentPage-1,currentPage===1);
+ for(let p=1;p<=pages;p++)addButton(String(p),p,false,p===currentPage);
+ addButton('পরের →',currentPage+1,currentPage===pages);
+}
+[search,gradeFilter,typeFilter].forEach(el=>el.addEventListener('input',()=>{currentPage=1;renderCourses();}));
+renderCourses();
 </script></body></html>
