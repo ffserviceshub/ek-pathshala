@@ -715,38 +715,74 @@ document.querySelectorAll('.course-card').forEach(card=>{
  link.href='https://wa.me/'+whatsappNumber+'?text='+encodeURIComponent(message);
  link.target='_blank';link.rel='noopener noreferrer';
 });
-const search=document.getElementById('courseSearch'),gradeFilter=document.getElementById('gradeFilter'),typeFilter=document.getElementById('typeFilter');
-const allCards=Array.from(document.querySelectorAll('.course-card'));
-const pageSize=10;let currentPage=1;
+const search=document.getElementById('courseSearch');
+const gradeFilter=document.getElementById('gradeFilter');
+const typeFilter=document.getElementById('typeFilter');
+const grid=document.getElementById('courseGrid');
+const allCards=Array.from(grid.querySelectorAll('.course-card'));
 const pagination=document.getElementById('coursePagination');
 const pageNote=document.getElementById('pageNote');
+const pageSize=10;
+let currentPage=1;
+
 function filteredCards(){
  const q=search.value.trim().toLocaleLowerCase();
- return allCards.filter(card=>card.dataset.title.includes(q)&&(!gradeFilter.value||card.dataset.grade===gradeFilter.value)&&(!typeFilter.value||card.dataset.type.toLowerCase()===typeFilter.value.toLowerCase()));
+ const grade=gradeFilter.value;
+ const type=typeFilter.value.toLocaleLowerCase();
+ return allCards.filter(card=>{
+  const title=(card.dataset.title||card.querySelector('h3')?.textContent||'').toLocaleLowerCase();
+  const cardType=(card.dataset.type||'').toLocaleLowerCase();
+  return title.includes(q)&&(!grade||card.dataset.grade===grade)&&(!type||cardType===type);
+ });
 }
 function renderCourses(){
- const matches=filteredCards(),pages=Math.max(1,Math.ceil(matches.length/pageSize));
- currentPage=Math.min(currentPage,pages);
- const first=(currentPage-1)*pageSize;
- const visibleSet=new Set(matches.slice(first,first+pageSize));
- allCards.forEach(card=>{card.hidden=!visibleSet.has(card);});
+ const matches=filteredCards();
+ const totalPages=Math.max(1,Math.ceil(matches.length/pageSize));
+ currentPage=Math.max(1,Math.min(currentPage,totalPages));
+ const start=(currentPage-1)*pageSize;
+ const visibleCards=new Set(matches.slice(start,start+pageSize));
+ allCards.forEach(card=>{card.hidden=!visibleCards.has(card);});
+
  let empty=document.getElementById('emptyCourses');
- if(!matches.length){
-  if(!empty){empty=document.createElement('p');empty.id='emptyCourses';empty.className='empty-state';empty.textContent='কোনো কোর্স পাওয়া যায়নি।';document.getElementById('courseGrid').appendChild(empty);}
- }else if(empty)empty.remove();
- pageNote.textContent=matches.length?('মোট '+matches.length+'টি কোর্স • '+(first+1)+'–'+Math.min(first+pageSize,matches.length)+' দেখানো হচ্ছে'):'';
+ if(matches.length===0){
+  if(!empty){
+   empty=document.createElement('p');
+   empty.id='emptyCourses';
+   empty.className='empty-state';
+   empty.textContent='কোনো কোর্স পাওয়া যায়নি।';
+   grid.appendChild(empty);
+  }
+ }else if(empty){empty.remove();}
+
+ pageNote.textContent=matches.length
+  ?('মোট '+matches.length+'টি কোর্স • '+(start+1)+'–'+Math.min(start+pageSize,matches.length)+' দেখানো হচ্ছে')
+  :'';
  pagination.replaceChildren();
- if(pages<=1)return;
+ if(totalPages<=1)return;
+
  const addButton=(label,page,disabled=false,current=false)=>{
-  const b=document.createElement('button');b.type='button';b.textContent=label;b.disabled=disabled;
-  if(current)b.setAttribute('aria-current','page');
-  b.addEventListener('click',()=>{currentPage=page;renderCourses();document.querySelector('.course-tools').scrollIntoView({behavior:'smooth',block:'start'});});
-  pagination.appendChild(b);
+  const button=document.createElement('button');
+  button.type='button';
+  button.textContent=label;
+  button.disabled=disabled;
+  if(current)button.setAttribute('aria-current','page');
+  button.addEventListener('click',()=>{
+   if(disabled||page<1||page>totalPages)return;
+   currentPage=page;
+   renderCourses();
+   document.querySelector('.course-tools').scrollIntoView({behavior:'smooth',block:'start'});
+  });
+  pagination.appendChild(button);
  };
  addButton('← আগের',currentPage-1,currentPage===1);
- for(let p=1;p<=pages;p++)addButton(String(p),p,false,p===currentPage);
- addButton('পরের →',currentPage+1,currentPage===pages);
+ for(let page=1;page<=totalPages;page++){
+  addButton(String(page),page,false,page===currentPage);
+ }
+ addButton('পরের →',currentPage+1,currentPage===totalPages);
 }
-[search,gradeFilter,typeFilter].forEach(el=>el.addEventListener('input',()=>{currentPage=1;renderCourses();}));
+[search,gradeFilter,typeFilter].forEach(control=>{
+ control.addEventListener('input',()=>{currentPage=1;renderCourses();});
+ control.addEventListener('change',()=>{currentPage=1;renderCourses();});
+});
 renderCourses();
 </script></body></html>
