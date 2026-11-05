@@ -1,13 +1,1 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 620 250" role="img" aria-labelledby="title desc">
-<title id="title">Ek Course</title><desc id="desc">Ek Course education logo with graduation cap and open book in navy and orange.</desc>
-<defs><linearGradient id="navy" x2="1" y2="1"><stop stop-color="#183b70"/><stop offset="1" stop-color="#071a38"/></linearGradient><linearGradient id="orange" x2="1" y2="1"><stop stop-color="#ffbf28"/><stop offset="1" stop-color="#f07818"/></linearGradient></defs>
-<g transform="translate(18 14)">
-<path d="M30 75 142 18l112 57-112 57z" fill="url(#navy)"/><path d="M84 91v49c33 22 83 22 116 0V91l-58 30z" fill="#102b54"/><path d="m246 75-12 7v40" fill="none" stroke="#f5a623" stroke-width="7" stroke-linecap="round"/><circle cx="234" cy="128" r="8" fill="#ffb326"/>
-<path d="M35 177q60-25 107 18 46-43 106-18v23q-60-20-106 24-47-44-107-24z" fill="#fff" stroke="#193967" stroke-width="5" stroke-linejoin="round"/>
-<path d="M142 194v48" stroke="#193967" stroke-width="4"/>
-<text x="276" y="105" font-family="Arial,sans-serif" font-size="62" font-weight="800" fill="#16365f">Ek</text>
-<rect x="266" y="119" width="322" height="86" rx="24" fill="url(#navy)"/>
-<text x="285" y="183" font-family="Arial,sans-serif" font-size="66" font-weight="900" letter-spacing="-2"><tspan fill="#ffad20">C</tspan><tspan fill="#fff">ourse</tspan></text>
-<path d="M150 238q175-45 438-5" fill="none" stroke="url(#orange)" stroke-width="9" stroke-linecap="round"/>
-<text x="300" y="245" font-family="Arial,sans-serif" font-size="17" font-weight="700" fill="#16365f" text-anchor="middle" letter-spacing="2">LEARN • PREPARE • GROW</text>
-</g></svg>
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 760 270"><title>Ek Course</title><defs><linearGradient id="b" x1="0" y1="0" x2="1" y2="1"><stop stop-color="#087cff"/><stop offset="1" stop-color="#0646c8"/></linearGradient></defs><g transform="translate(12 18)"><path d="M20 92 166 22 312 92 166 160Z" fill="#071d49"/><path d="M63 111v53q103 55 206 0v-53l-103 49Z" fill="#09275c"/><path d="M20 92v70" stroke="#071d49" stroke-width="9"/><circle cx="20" cy="170" r="10" fill="#071d49"/><path d="M7 183q13-13 26 0l13 32q-26 17-52 0Z" fill="#071d49"/><path d="M38 222q72-48 128 18 55-66 128-18l-16 24q-65-31-112 27-47-58-112-27Z" fill="url(#b)"/><path d="M166 240v30" stroke="#071d49" stroke-width="4"/><text x="352" y="112" font-family="Arial,sans-serif" font-size="92" font-weight="900" fill="#071d49">Ek</text><path d="m558 25-22 47m66-23-48 26" stroke="#087cff" stroke-width="12" stroke-linecap="round"/><text x="334" y="207" font-family="Arial,sans-serif" font-size="106" font-weight="900" fill="#071d49">Course</text><path d="M330 236q190-63 410 0" fill="none" stroke="url(#b)" stroke-width="13" stroke-linecap="round"/></g></svg>
