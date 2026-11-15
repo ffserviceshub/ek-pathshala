@@ -90,3 +90,21 @@ footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid va
 @keyframes contactFloat{0%,100%{translate:0 0}50%{translate:0 -4px}}
 @media(max-width:600px){.floating-contact{right:14px;bottom:16px;gap:11px}.floating-contact-btn{width:51px;height:51px}.floating-contact-btn svg{width:26px;height:26px}}
 @media(prefers-reduced-motion:reduce){.floating-contact-btn,.floating-contact-btn:before{animation:none}}
+
+/* Top navigation Telegram channel link */
+.site-header nav .channel-top-link{display:inline-flex;align-items:center;gap:8px;padding:8px 14px;border-radius:999px;background:#e8f5ff;color:#168ac4;font-size:.84rem;font-weight:800;text-decoration:none;border:1px solid #cceaff;white-space:nowrap;transition:.2s}
+.site-header nav .channel-top-link:hover{background:#d9efff;transform:translateY(-1px)}
+.channel-top-icon{width:23px;height:23px;border-radius:50%;display:grid;place-items:center;background:#229ed9;color:#fff}.channel-top-icon svg{width:14px;height:14px;fill:currentColor}
+.contact-launcher{position:fixed;right:22px;bottom:22px;z-index:10000;font-family:inherit}
+.contact-main{position:relative;width:62px;height:62px;border:4px solid #fff;border-radius:50%;background:linear-gradient(145deg,#713bd1,#4b20a5);color:#fff;display:grid;place-items:center;cursor:pointer;box-shadow:0 6px 24px #4b20a555;transition:transform .2s}
+.contact-main:before{content:"";position:absolute;inset:-7px;border:2px solid #8b69df66;border-radius:50%;animation:contactHalo 2.3s ease-out infinite}
+.contact-main:hover{transform:scale(1.06)}.contact-main-icon{width:30px;height:30px;fill:currentColor}.contact-close{display:none;font-size:34px;line-height:1;font-weight:300}.contact-main[aria-expanded="true"] .contact-main-icon{display:none}.contact-main[aria-expanded="true"] .contact-close{display:block}
+.contact-menu{position:absolute;right:0;bottom:78px;width:245px;padding:12px;border:1px solid #e8e4f5;border-radius:19px;background:#fff;box-shadow:0 12px 36px #1d17402b;display:flex;flex-direction:column;gap:9px;opacity:0;visibility:hidden;transform:translateY(10px) scale(.97);transform-origin:bottom right;transition:.2s}
+.contact-menu.is-open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.contact-choice{display:flex;align-items:center;gap:12px;padding:11px;border-radius:13px;background:#fafaff;text-decoration:none;color:#18233c;border:1px solid #eeedf5}
+.contact-choice>svg{width:25px;height:25px;flex:0 0 25px;fill:#fff;padding:8px;box-sizing:content-box;border-radius:12px}
+.contact-choice span{display:flex;flex-direction:column;gap:2px}.contact-choice b{font-size:.9rem}.contact-choice small{font-size:.73rem;color:#788196}
+.whatsapp-choice>svg{background:#20c768}.telegram-choice>svg{background:#229ed9}
+@keyframes contactHalo{0%{transform:scale(.94);opacity:.65}100%{transform:scale(1.25);opacity:0}}
+@media(max-width:720px){.site-header nav .channel-top-link{padding:6px 9px;font-size:.72rem;gap:5px}.channel-top-icon{width:20px;height:20px}.contact-launcher{right:15px;bottom:16px}.contact-main{width:56px;height:56px}}
+@media(prefers-reduced-motion:reduce){.contact-main:before{animation:none}}
