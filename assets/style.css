@@ -45,3 +45,35 @@ footer{text-align:center;padding:24px;color:var(--muted);border-top:1px solid va
 .support-chat{display:flex;align-items:center;justify-content:center;padding:11px 14px;border-radius:11px;background:#20c768;color:#fff;text-decoration:none;font-weight:800}
 .support-chat:hover{background:#16ad57;color:#fff}
 @media(max-width:600px){.support-widget{right:15px;bottom:16px}.support-toggle{width:56px;height:56px}.support-toggle svg{width:30px;height:30px}}
+
+/* Telegram channel top-bar button */
+.site-header nav .channel-top-link{display:inline-flex;align-items:center;gap:8px;padding:8px 13px;border:1px solid #d8e9ff;border-radius:999px;background:linear-gradient(135deg,#f2f8ff,#e5f1ff);color:#1877c9;font-size:.84rem;font-weight:800;text-decoration:none;box-shadow:0 3px 12px rgba(34,158,217,.10);transition:transform .2s,box-shadow .2s,background .2s}
+.site-header nav .channel-top-link:hover{transform:translateY(-2px);background:#e2f1ff;box-shadow:0 6px 18px rgba(34,158,217,.2);color:#1268b5}
+.channel-top-icon{width:23px;height:23px;display:grid;place-items:center;border-radius:50%;background:#229ed9;color:#fff}.channel-top-icon svg{width:14px;height:14px;fill:currentColor}.channel-top-arrow{font-size:1rem}
+/* Animated floating support launcher and portrait 9:16 contact panel */
+.support-widget{position:fixed;right:24px;bottom:22px;z-index:9999;font-family:inherit}
+.support-toggle{position:relative;display:flex;align-items:center;gap:10px;padding:7px 8px 7px 17px;border:1px solid rgba(100,75,220,.14);border-radius:999px;background:#fff;color:#18233c;box-shadow:0 6px 26px rgba(35,27,83,.18);cursor:pointer;animation:supportFloat 3s ease-in-out infinite;transition:transform .2s,box-shadow .2s}
+.support-toggle:before{content:"";position:absolute;inset:-6px;border:2px solid rgba(104,75,220,.28);border-radius:999px;animation:supportPulse 2.2s ease-out infinite;pointer-events:none}
+.support-toggle-label{font-size:.9rem;font-weight:850;white-space:nowrap}
+.support-toggle-icon{width:48px;height:48px;display:grid;place-items:center;border-radius:50%;background:linear-gradient(145deg,#6c3bd1,#4c22a8);box-shadow:0 3px 12px rgba(83,43,180,.35)}
+.support-toggle-icon svg{width:27px;height:27px;fill:#fff}
+.support-toggle:hover{transform:translateY(-3px);box-shadow:0 10px 30px rgba(35,27,83,.24)}
+.support-toggle.is-active{animation:none}
+.support-popover{position:absolute;right:0;bottom:75px;width:min(270px,calc(100vw - 34px));aspect-ratio:9/16;max-height:min(480px,70vh);overflow:auto;padding:19px 16px 14px;border:1px solid #e9e7f6;border-radius:25px;background:linear-gradient(160deg,#fff 0%,#f8f6ff 100%);box-shadow:0 15px 45px rgba(34,24,83,.22);display:flex;flex-direction:column;justify-content:center;gap:15px;opacity:0;visibility:hidden;transform:translateY(14px) scale(.96);transform-origin:bottom right;transition:opacity .24s,transform .24s,visibility .24s}
+.support-popover.is-open{opacity:1;visibility:visible;transform:translateY(0) scale(1)}
+.support-panel-head{display:flex;flex-direction:column;align-items:center;text-align:center;gap:6px;margin-bottom:10px}
+.support-head-icon{width:46px;height:46px;display:grid;place-items:center;border-radius:15px;background:#eee8ff;color:#6039c3;font-size:1.6rem}
+.support-panel-head strong{font-size:1.12rem;color:#17213a}.support-panel-head small{font-size:.8rem;color:#768096}
+.support-option{display:flex;align-items:center;gap:11px;padding:13px 10px;border:1px solid #ececf3;border-radius:16px;background:#fff;color:#17213a;text-decoration:none;box-shadow:0 4px 14px rgba(25,31,65,.06);transition:transform .2s,border-color .2s}
+.support-option:hover{transform:translateY(-2px);border-color:#c9b9f3;color:#17213a}
+.support-option-icon{width:43px;height:43px;flex:0 0 43px;display:grid;place-items:center;border-radius:13px;color:#fff}
+.support-option-icon svg{width:25px;height:25px;fill:currentColor}
+.whatsapp-option .support-option-icon{background:#20c768}.telegram-option .support-option-icon{background:#229ed9}
+.support-option b{display:block;font-size:.88rem;font-weight:850}.support-option small{display:block;margin-top:2px;font-size:.72rem;color:#7b8498}
+.support-arrow{margin-left:auto;color:#9aa2b2;font-size:1.5rem}
+.support-footnote{text-align:center;color:#9299aa;font-size:.7rem;margin:2px 0 0}
+@keyframes supportPulse{0%{transform:scale(.96);opacity:.8}75%,100%{transform:scale(1.16);opacity:0}}
+@keyframes supportFloat{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
+@media(max-width:760px){.site-header nav .channel-top-link{padding:6px 9px;gap:5px;font-size:.72rem}.channel-top-icon{width:20px;height:20px}.support-widget{right:16px;bottom:16px}.support-toggle{padding-left:13px}.support-toggle-icon{width:44px;height:44px}}
+@media(max-width:420px){.site-header nav .channel-top-link span:nth-child(2){max-width:88px;white-space:normal;line-height:1.15}.support-popover{width:min(250px,calc(100vw - 30px));max-height:68vh}}
+@media(prefers-reduced-motion:reduce){.support-toggle,.support-toggle:before{animation:none}}
